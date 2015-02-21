@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>CareerPath</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="client/lib/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="client/styles.css"/>
 </head>
 <body ng-class="{hideBackground: !showBackground()}">
@@ -15,11 +16,15 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#/home">NiewLabs</a>
+                <a class="navbar-brand" href="#/home">
+                    Niew
+                    <img src="client/images/leaf.png" alt="leaf" style="display:inline"/>
+                    Labs
+                </a>
             </div>
 
             <ul class="nav navbar-nav">
-                <li><a href="#/home">Home</a></li>
+                <li class="active"><a href="#/home">Home</a></li>
             </ul>
 
         </div><!-- /.container-fluid -->
