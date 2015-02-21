@@ -1,13 +1,20 @@
 <div>
     <form class="form-group">
         <div class="input-group">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary" ng-click="ctrl.search()">Go</button>
-                </span>
-            <input type="text" ng-model="ctrl.search"
-                   class="form-control" placeholder="Enter a field you are interested in">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary" ng-click="ctrl.preformSearch()">Go</button>
+            </span>
+            <input type="text" ng-model="ctrl.liveSearch"
+                   class="form-control"
+                   placeholder="Enter a field you are interested in"
+                   typeahead="descObj.descriptions[0] for descObj in ctrl.fieldData.descriptions | filter:$viewValue | limitTo:8">
         </div>
     </form>
 
-    <result-list matches="ctrl.fieldData.descriptions | filter:ctrl.search" field-map="ctrl.fieldData.fieldMap"></result-list>
+    <result-list
+            ng-if="ctrl.search.length > 0"
+            search="ctrl.search"
+            descriptions="ctrl.fieldData.descriptions"
+            field-map="ctrl.fieldData.fieldMap">
+    </result-list>
 </div>

@@ -1,4 +1,4 @@
-var app = angular.module('careerPath', ['ngRoute']);
+var app = angular.module('careerPath', ['ngRoute', 'ui.bootstrap']);
 
 app.config(function($routeProvider) {
     $routeProvider

@@ -1,7 +1,8 @@
 <div>
     <ul>
-        <li ng-repeat="match in ctrl.matches | limitTo:15">
-            <pre>{{ctrl.fieldMap[match.id] | json}}</pre>
+        <li ng-repeat="match in ctrl.descriptions | filter:ctrl.search | limitTo:15 track by match.id">
+            <h3>{{ctrl.fieldMap[match.id].description}}</h3>
+            <div>{{ctrl.fieldMap[match.id].nocDescription}}</div>
         </li>
     </ul>
 </div>

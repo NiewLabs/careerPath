@@ -7,3 +7,7 @@ var HomeCtrl = function(fieldData) {
 };
 
 angular.module('careerPath').controller('HomeCtrl', HomeCtrl);
+
+HomeCtrl.prototype.preformSearch = function() {
+    this.search = this.liveSearch || '';
+};
