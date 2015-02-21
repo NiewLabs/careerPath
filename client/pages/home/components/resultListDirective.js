@@ -5,7 +5,8 @@ angular.module('careerPath').directive('resultList', function() {
         controllerAs: 'ctrl',
         bindToController: true,
         scope: {
-            fields: '='
+            matches: '=',
+            fieldMap: '='
         }
     };
 });

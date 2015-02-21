@@ -1,7 +1,7 @@
 <div>
     <ul>
-        <li ng-repeat="field in ctrl.fields">
-            <pre>{{field | json}}</pre>
+        <li ng-repeat="match in ctrl.matches | limitTo:15">
+            <pre>{{ctrl.fieldMap[match.id] | json}}</pre>
         </li>
     </ul>
 </div>

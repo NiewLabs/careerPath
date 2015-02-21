@@ -4,10 +4,10 @@
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-primary" ng-click="ctrl.search()">Go</button>
                 </span>
-            <input type="text" ng-model="ctrl.userSearch"
+            <input type="text" ng-model="ctrl.search"
                    class="form-control" placeholder="Enter a field you are interested in">
         </div>
     </form>
 
-    <result-list fields="ctrl.fields"></result-list>
+    <result-list matches="ctrl.fieldData.descriptions | filter:ctrl.search" field-map="ctrl.fieldData.fieldMap"></result-list>
 </div>
