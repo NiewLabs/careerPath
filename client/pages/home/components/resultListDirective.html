@@ -1,1 +1,7 @@
-<div>list</div>
+<div>
+    <ul>
+        <li ng-repeat="field in ctrl.fields">
+            <pre>{{field | json}}</pre>
+        </li>
+    </ul>
+</div>

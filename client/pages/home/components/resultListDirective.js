@@ -3,10 +3,14 @@ angular.module('careerPath').directive('resultList', function() {
         templateUrl: 'client/pages/home/components/resultListDirective.html',
         controller: ResultListCtrl,
         controllerAs: 'ctrl',
-        bindToCtrl: true
+        bindToController: true,
+        scope: {
+            fields: '='
+        }
     };
 });
 
-var ResultListCtrl = function() {
+var ResultListCtrl = function($timeout) {
+
 
 };

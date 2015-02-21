@@ -1,8 +1,8 @@
-var HomeCtrl = function($http) {
+var HomeCtrl = function(fieldData) {
     var _this = this;
 
-    $http.get('client/data/fields.json').then(function(response) {
-        _this.fields = response.data;
+    fieldData.load().then(function(data) {
+        _this.fields = data;
     });
 };
 
