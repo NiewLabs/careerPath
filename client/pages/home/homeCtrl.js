@@ -18,14 +18,15 @@ var HomeCtrl = function($location, $rootScope, $filter, fieldData) {
 angular.module('careerPath').controller('HomeCtrl', HomeCtrl);
 
 HomeCtrl.prototype.preformSearch = function() {
+    var search = {search: this.liveSearch};
+
     var results = this.$filter('filter')(this.fieldData.descriptions, this.liveSearch);
-console.log(results);
 
     if (results.length === 1) {
-        this.$location.search({id: results[0].id});
-    } else {
-        this.$location.search({search: this.liveSearch});
+        search.id = results[0].id;
     }
+
+    this.$location.search(search);
 };
 
 HomeCtrl.prototype.getFieldId = function() {

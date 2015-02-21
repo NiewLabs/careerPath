@@ -24,7 +24,8 @@ body {
 
 
 
-.background-cover.hideBackground-add, .background-cover.hideBackground-remove
+.background-cover.hideBackground-add, .background-cover.hideBackground-remove,
+.hideBackground #search-form
 {
     transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
@@ -40,10 +41,9 @@ body {
 }
 
 #search-form {
-    position:relative;
-    top:200px;
+    margin-top:200px;
 }
 
 .hideBackground #search-form {
-    top: 0;
+    margin-top: 0;
 }
