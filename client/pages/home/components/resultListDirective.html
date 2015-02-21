@@ -1,7 +1,11 @@
 <div>
     <ul>
-        <li ng-repeat="match in ctrl.descriptions | filter:ctrl.search | limitTo:15 track by match.id">
-            <h3>{{ctrl.fieldMap[match.id].description}}</h3>
+        <li ng-repeat="match in ctrl.descriptions | filter:ctrl.search track by match.id">
+            <h3>
+                <a href="" ng-href="#/home?id={{match.id}}">
+                    {{ctrl.fieldMap[match.id].description}}
+                </a>
+            </h3>
             <div>{{ctrl.fieldMap[match.id].nocDescription}}</div>
         </li>
     </ul>

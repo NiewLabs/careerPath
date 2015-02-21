@@ -3,7 +3,10 @@ angular.module('careerPath').directive('fieldDetails', function() {
         templateUrl: 'client/pages/home/components/fieldDetailsDirective.html',
         controller: FieldDetailsCtrl,
         controllerAs: 'ctrl',
-        bindToCtrl: true
+        bindToController: true,
+        scope: {
+            field: '='
+        }
     };
 });
 

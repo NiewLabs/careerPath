@@ -7,14 +7,18 @@
             <input type="text" ng-model="ctrl.liveSearch"
                    class="form-control"
                    placeholder="Enter a field you are interested in"
-                   typeahead="descObj.descriptions[0] for descObj in ctrl.fieldData.descriptions | filter:$viewValue | limitTo:8">
+                   typeahead="descObj.descriptions[0] for descObj in ctrl.fieldData.descriptions | filter:$viewValue | limitTo:10">
         </div>
     </form>
 
     <result-list
-            ng-if="ctrl.search.length > 0"
+            ng-if="!ctrl.fieldId && ctrl.search.length > 0"
             search="ctrl.search"
             descriptions="ctrl.fieldData.descriptions"
             field-map="ctrl.fieldData.fieldMap">
     </result-list>
+    <field-details
+            ng-if="ctrl.fieldId"
+            field="ctrl.fieldData.fieldMap[ctrl.fieldId]">
+    </field-details>
 </div>
