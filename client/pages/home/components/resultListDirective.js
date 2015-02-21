@@ -12,7 +12,7 @@ angular.module('careerPath').directive('resultList', function() {
     };
 });
 
-var ResultListCtrl = function($timeout) {
+var ResultListCtrl = function() {
 
 
 };

@@ -1,14 +1,14 @@
-var HomeCtrl = function($location, fieldData) {
+var HomeCtrl = function($location, $rootScope, $filter, fieldData) {
     var _this = this;
 
     this.$location = $location;
+    this.$filter = $filter;
 
-    if($location.search().id) {
-        this.fieldId = $location.search().id;
-    }
-    if($location.search().search) {
-        this.search = $location.search().search;
-    }
+    this.liveSearch = this.getSearch();
+
+    $rootScope.showBackground = function() {
+        return (!_this.getSearch() && !_this.getFieldId());
+    };
 
     fieldData.load().then(function(data) {
         _this.fieldData = data;
@@ -18,5 +18,20 @@ var HomeCtrl = function($location, fieldData) {
 angular.module('careerPath').controller('HomeCtrl', HomeCtrl);
 
 HomeCtrl.prototype.preformSearch = function() {
-    this.$location.search({search: this.liveSearch});
+    var results = this.$filter('filter')(this.fieldData.descriptions, this.liveSearch);
+console.log(results);
+
+    if (results.length === 1) {
+        this.$location.search({id: results[0].id});
+    } else {
+        this.$location.search({search: this.liveSearch});
+    }
+};
+
+HomeCtrl.prototype.getFieldId = function() {
+    return this.$location.search().id;
+};
+
+HomeCtrl.prototype.getSearch = function() {
+    return this.$location.search().search;
 };

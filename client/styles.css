@@ -1,0 +1,49 @@
+html {
+    background: url(images/background.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.background-cover {
+    position:fixed;
+    content:"";
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    /*background:rgba(255,255,255,0.3);*/
+    z-index:-1;
+}
+
+body {
+    background-color: transparent;
+}
+
+.view {
+    margin: 20px;
+}
+
+
+
+.background-cover.hideBackground-add, .background-cover.hideBackground-remove
+{
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.background-cover,
+.background-cover.hideBackground-remove.hideBackground-remove-active {
+    background:rgba(255,255,255, 0);
+}
+
+.background-cover.hideBackground,
+.background-cover.hideBackground-add.hideBackground-add-active {
+    background:rgba(255,255,255,1);
+}
+
+#search-form {
+    position:relative;
+    top:200px;
+}
+
+.hideBackground #search-form {
+    top: 0;
+}
