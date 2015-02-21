@@ -1,0 +1,19 @@
+<div>
+    <form class="form-group">
+        <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary" ng-click="ctrl.search()">Go</button>
+                </span>
+            <input type="text" ng-model="ctrl.userSearch"
+                   class="form-control" placeholder="Enter a field you are interested in">
+        </div>
+    </form>
+
+    <div>
+        <ul>
+            <li ng-repeat="field in ctrl.fields">
+                <pre>{{field | json}}</pre>
+            </li>
+        </ul>
+    </div>
+</div>
