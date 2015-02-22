@@ -7,18 +7,23 @@ app.directive('totalChart', function () {
         },
         link: function (scope, element) {
             element.highcharts({
+            	chart: {
+            		spacingTop: 0
+            	},
                 title: {
-                    text: 'Job Projections',
+                    text: 'Total Projected Jobs',
                     x: -20 //center
                 },
-                subtitle: {
-                    text: 'Source: EDC Canada',
+                /*subtitle: {
+                    text: 'Source: Employment and Social Development Canada',
                     x: -20
                 },
+                */
                 xAxis: {
-                    categories: ['2013', '2014', '2015', '2016', '2017', '2018',
+                    categories: ['2012', '2013', '2014', '2015', '2016', '2017', '2018',
                         '2019', '2020', '2021', '2022', '2022']
                 },
+                
                 yAxis: {
                 	labels: {
                 		formatter: function() {
@@ -26,7 +31,7 @@ app.directive('totalChart', function () {
                 			}
                 	},
                     title: {
-                        text: 'Thousands'
+                        text: 'Jobs'
                     },
                     plotLines: [{
                         value: 0,
@@ -35,17 +40,26 @@ app.directive('totalChart', function () {
                     }]
                 },
                 tooltip: {
-                    valueSuffix: '°C'
+                	formatter: function() {
+                				return this.y * 1000;
+                			}
                 },
+                credits: {
+                	enabled: false
+                },
+                /*
                 legend: {
+                	spaceTop: 10,
                     layout: 'vertical',
                     align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
+                    verticalAlign: 'top',
+                    borderWidth: 0,
+                    floating: true
                 },
+                */
                 series: [{
                 	//type: 'column',
-                    name: 'Total Jobs Projected',
+                    name: 'Total Projected Jobs ',
                     data: scope.jobTotals
                 }]
             });
