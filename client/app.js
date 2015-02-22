@@ -7,6 +7,10 @@ app.config(function($routeProvider) {
             controller: 'HomeCtrl as ctrl',
             reloadOnSearch: false
         })
+        .when('/about', {
+            templateUrl: 'client/pages/about/about.html',
+            controller: 'AboutCtrl as ctrl'
+        })
         .otherwise({
             redirectTo: '/home'
         })
