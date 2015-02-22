@@ -11,5 +11,5 @@ angular.module('careerPath').directive('fieldDetails', function() {
 });
 
 var FieldDetailsCtrl = function() {
-
+    this.field;
 };
