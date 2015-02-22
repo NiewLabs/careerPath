@@ -1342,7 +1342,7 @@ html{
 
 body{
 	font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size:20px;
+	font-size:14px;
 	line-height:1.42857143;
 	color:#777777;
 	background-color:#fcfcfc
@@ -7183,7 +7183,7 @@ button.close{
 }
 
 body{
-	font-weight:400
+	font-weight:200
 }
 
 th{
