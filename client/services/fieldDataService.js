@@ -1,41 +1,46 @@
-var FieldData = function($http) {
-    var descriptions = [];
-    var fieldMap = {};
-    var allDescriptions = [];
+var FieldData = function($http, $q) {
+    var fieldData = {
+        descriptions: [],
+        fieldMap: {},
+        allDescriptions: [],
+        sampleJobMap: {}
+    };
 
-    this.loadFieldsPromise = $http.get('client/data/fields.json').then(function(response) {
-        for(var i = 0; i < response.data.length; i++) {
-            var curField = response.data[i];
+    this.loadFieldsPromise = $q.all([
+        $http.get('client/data/fields.json'),
+        $http.get('client/data/groupings_to_titles.json')
+    ])
+        .then(function(responses) {
+            var fields = responses[0].data;
+            var sampleJobMap = responses[1].data;
 
-            descriptions.push({
-                id: curField.groupingCode,
-                description: curField.description
-            });
-            allDescriptions.push({
-                id: curField.groupingCode,
-                description: curField.description
-            });
+            for(var i = 0; i < fields.length; i++) {
+                var curField = fields[i];
 
-            fieldMap[curField.groupingCode] = curField;
-        }
-
-        return {
-            descriptions: descriptions,
-            allDescriptions: allDescriptions,
-            fieldMap: fieldMap
-        };
-    });
-
-    $http.get('client/data/groupings_to_titles.json').then(function(response) {
-        for(id in response.data) {
-            for(var i = 0; i < response.data[id].length; i++) {
-                allDescriptions.push({
-                    id: id,
-                    description: response.data[id][i]
+                fieldData.descriptions.push({
+                    id: curField.groupingCode,
+                    description: curField.description
                 });
+                fieldData.allDescriptions.push({
+                    id: curField.groupingCode,
+                    description: curField.description
+                });
+
+                fieldData.fieldMap[curField.groupingCode] = curField;
             }
-        }
-        console.log('dont loading');
+
+            fieldData.sampleJobMap = sampleJobMap;
+
+            for(id in sampleJobMap) {
+                for(var j = 0; j < sampleJobMap[id].length; j++) {
+                    fieldData.allDescriptions.push({
+                        id: id,
+                        description: sampleJobMap[id][j]
+                    });
+                }
+            }
+
+            return fieldData;
     });
 };
 

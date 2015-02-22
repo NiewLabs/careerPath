@@ -20,10 +20,11 @@ angular.module('careerPath').controller('HomeCtrl', HomeCtrl);
 HomeCtrl.prototype.preformSearch = function() {
     var search = {search: this.liveSearch};
 
-    var results = this.$filter('filter')(this.fieldData.descriptions, this.liveSearch);
-
-    if (results.length === 1) {
-        search.id = results[0].id;
+    var results = this.$filter('filter')(this.fieldData.allDescriptions, this.liveSearch);
+    var uniqueResults = this.$filter('unique')(results, 'id');
+    console.log(uniqueResults);
+    if (uniqueResults.length === 1) {
+        search.id = uniqueResults[0].id;
     }
 
     this.$location.search(search);

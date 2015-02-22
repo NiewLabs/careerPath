@@ -12,7 +12,25 @@ angular.module('careerPath').directive('resultList', function() {
     };
 });
 
-var ResultListCtrl = function() {
+var ResultListCtrl = function(fieldData, $interval, $timeout) {
+    var _this = this;
 
+    fieldData.load().then(function(fieldData) {
+        _this.fieldData = fieldData;
+        for(id in fieldData.fieldMap) {
+            if(fieldData.sampleJobMap[id] && fieldData.sampleJobMap[id].length) {
+
+                fieldData.fieldMap[id].sampleJob = _this.getRandomElement(fieldData.sampleJobMap[id]);
+            }
+        }
+
+    });
+};
+
+ResultListCtrl.prototype.getRandomElement = function(anArray) {
+  return anArray[Math.floor(Math.random()*anArray.length)];
+};
+
+ResultListCtrl.prototype.getSampleJob = function() {
 
 };

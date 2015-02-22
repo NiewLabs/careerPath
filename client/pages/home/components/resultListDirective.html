@@ -1,12 +1,34 @@
 <div>
-    <ul>
-        <li ng-repeat="match in ctrl.descriptions | filter:ctrl.search | unique:'id'">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="match in ctrl.descriptions | filter:ctrl.search | unique:'id'">
             <h3>
                 <a href="" ng-href="#/home?id={{match.id}}">
                     {{ctrl.fieldMap[match.id].description}}
                 </a>
             </h3>
-            <div>{{ctrl.fieldMap[match.id].nocDescription}}</div>
+            <div class="row">
+                <div class="col-sm-4">
+                    Jobs:
+                    <h3>{{ctrl.fieldMap[match.id].projections[3].jobsTotal * 1000 | number:0}}</h3>
+                </div>
+                <div class="col-sm-4">
+                    Outlook:
+                    <div style="line-height:55px;">
+                        New Jobs
+                        <h3 style="display:inline;">
+                            {{ctrl.fieldMap[match.id].projections[3].jobsChange / ctrl.fieldMap[match.id].projections[3].jobSeekers | number:2}}
+                            :
+                            1
+                        </h3>
+                        Job Seeker
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    Sample Job:
+                    <h3>{{ctrl.fieldMap[match.id].sampleJob}}</h3>
+                </div>
+            </div>
         </li>
     </ul>
 </div>
