@@ -12,7 +12,7 @@ angular.module('careerPath').directive('resultList', function() {
     };
 });
 
-var ResultListCtrl = function(fieldData, $interval, $timeout) {
+var ResultListCtrl = function(fieldData) {
     var _this = this;
 
     fieldData.load().then(function(fieldData) {
@@ -29,8 +29,4 @@ var ResultListCtrl = function(fieldData, $interval, $timeout) {
 
 ResultListCtrl.prototype.getRandomElement = function(anArray) {
   return anArray[Math.floor(Math.random()*anArray.length)];
-};
-
-ResultListCtrl.prototype.getSampleJob = function() {
-
 };
