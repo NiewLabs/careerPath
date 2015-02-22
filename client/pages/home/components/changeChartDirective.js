@@ -9,20 +9,20 @@ app.directive('changeChart', function () {
         link: function (scope, element) {
             element.highcharts({
                 title: {
-                    text: 'Monthly Average Temperature',
+                    text: 'Job Projections',
                     x: -20 //center
                 },
                 subtitle: {
-                    text: 'Source: WorldClimate.com',
+                    text: 'Source: EDC Canada',
                     x: -20
                 },
                 xAxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    categories: ['2013', '2014', '2015', '2016', '2017', '2018',
+                        '2019', '2020', '2021', '2022', '2022']
                 },
                 yAxis: {
                     title: {
-                        text: 'Temperature (°C)'
+                        text: 'Thousands'
                     },
                     plotLines: [{
                         value: 0,
@@ -40,14 +40,15 @@ app.directive('changeChart', function () {
                     borderWidth: 0
                 },
                 series: [{
-                    name: 'Change',
+                	type: 'column',
+                    name: 'Job Demands',
                     data: scope.jobChange
                 }, {
-                    name: 'Seekers',
+                	type: 'column',
+                    name: 'Job Seekers',
                     data: scope.jobSeekers
                 }]
-            });
+            }); 
         }
-
     };
 });
