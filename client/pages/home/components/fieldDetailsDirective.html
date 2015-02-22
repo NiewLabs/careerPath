@@ -1,6 +1,23 @@
-<h3>Title</h3>
+<h1 class="text-center text-primary" style="margin-bottom: 20px;">{{ctrl.field.description}}</h1>
 <div class="row">
     <div class="col-sm-6">
         <div change-chart job-seekers="[1,2,3]" job-change="[2,1,4]"></div>
+    </div>
+    <div class="col-sm-6">
+        <h3>Occupations</h3>
+
+        <form>
+            <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-filter"></span>
+                <input type="text" class="form-control" ng-model="jobFilter" placeholder="filter occupations"/>
+            </div>
+        </form>
+        <div style="height: 300px;overflow:scroll;">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="job in ctrl.sampleJobs | filter:jobFilter">
+                    {{job}}
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

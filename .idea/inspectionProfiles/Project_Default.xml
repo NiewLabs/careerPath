@@ -6,8 +6,10 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="1">
+          <list size="3">
             <item index="0" class="java.lang.String" itemvalue="typeahead-on-select" />
+            <item index="1" class="java.lang.String" itemvalue="job-seekers" />
+            <item index="2" class="java.lang.String" itemvalue="job-change" />
           </list>
         </value>
       </option>

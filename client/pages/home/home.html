@@ -19,7 +19,7 @@
             field-map="ctrl.fieldData.fieldMap">
     </result-list>
     <field-details
-            ng-if="ctrl.getFieldId()"
+            ng-if="ctrl.getFieldId() && ctrl.fieldData.fieldMap[ctrl.getFieldId()]"
             field="ctrl.fieldData.fieldMap[ctrl.getFieldId()]">
     </field-details>
 </div>
