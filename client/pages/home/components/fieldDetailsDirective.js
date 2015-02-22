@@ -10,6 +10,10 @@ angular.module('careerPath').directive('fieldDetails', function() {
     };
 });
 
-var FieldDetailsCtrl = function() {
-    this.field;
+var FieldDetailsCtrl = function(fieldData) {
+    var _this = this;
+    fieldData.load().then(function(data) {
+        _this.fieldData = data;
+        _this.sampleJobs = data.sampleJobMap[_this.field.groupingCode];
+    });
 };
