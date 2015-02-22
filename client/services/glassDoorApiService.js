@@ -30,12 +30,10 @@ GlassDoorApi.prototype.load = function(groupingId) {
                                         name: _this.glassDoorCodeNameMap[glassDoorCode].join(', '),
                                         jobTitles: response.data.response.jobTitles
                                     });
-                                    console.log(results);
+                                    promiseMgr.resolve(results);
                                     test(glassDoorCodes);
                                 });
                         },1000);
-                    } else {
-                        promiseMgr.resolve(results);
                     }
                 };
 
