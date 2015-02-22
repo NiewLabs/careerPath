@@ -10,12 +10,12 @@
         <form>
             <div class="input-group">
                 <span class="input-group-addon glyphicon glyphicon-filter"></span>
-                <input type="text" class="form-control" ng-model="jobFilter" placeholder="filter occupations"/>
+                <input type="text" class="form-control" ng-model="ctrl.jobFilter" placeholder="filter occupations"/>
             </div>
         </form>
-        <div style="height: 300px;overflow:scroll;">
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="job in ctrl.sampleJobs | filter:jobFilter">
+        <div style="height: 310px;overflow-y:scroll;border: 1px solid #eee;">
+            <ul class="list-group" style="margin-bottom: 0;">
+                <li class="list-group-item" ng-repeat="job in ctrl.sampleJobs | filter:ctrl.jobFilter | limitTo: 100 track by $index">
                     {{job}}
                 </li>
             </ul>
