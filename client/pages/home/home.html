@@ -6,7 +6,7 @@
             </span>
             <input type="text" ng-model="ctrl.liveSearch"
                    class="form-control"
-                   placeholder="Enter a field you are interested in"
+                   placeholder="Enter a job title or industry you are interested in"
                    typeahead="descObj.description for descObj in ctrl.fieldData.allDescriptions | filter:$viewValue | limitTo:10"
                    typeahead-on-select="ctrl.preformSearch()">
         </div>
