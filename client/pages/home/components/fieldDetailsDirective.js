@@ -16,6 +16,10 @@ var FieldDetailsCtrl = function(fieldData) {
         _this.fieldData = data;
         _this.sampleJobs = data.sampleJobMap[_this.field.groupingCode];
     });
+
+    this.jobSeekers = this.getJobSeekers();
+    this.jobsChange = this.getJobsChange();
+    this.jobTotals = this.getJobTotals();
 };
 
 FieldDetailsCtrl.prototype.getJobSeekers = function() {
@@ -27,5 +31,11 @@ FieldDetailsCtrl.prototype.getJobSeekers = function() {
 FieldDetailsCtrl.prototype.getJobsChange = function() {
     return this.field.projections.map(function(projection) {
         return projection.jobsChange;
+    });
+};
+
+FieldDetailsCtrl.prototype.getJobTotals = function() {
+    return this.field.projections.map(function(projection) {
+        return projection.jobsTotal;
     });
 };
