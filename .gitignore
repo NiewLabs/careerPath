@@ -12,3 +12,6 @@
 hs_err_pid*
 
 client/node_modules
+
+# Mac
+.DS_Store
