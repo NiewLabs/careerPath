@@ -52,3 +52,8 @@ FieldDetailsCtrl.prototype.getJobTotals = function() {
         return projection.jobsTotal;
     });
 };
+
+FieldDetailsCtrl.prototype.getLinkToGlassdoor = function(jobTitle) {
+    var dashedTitle = jobTitle.replace(/ /g, '-');
+    return 'http://www.glassdoor.ca/Job/' + dashedTitle + '-jobs-SRCH_KO0,'+dashedTitle.length+'.htm';
+};

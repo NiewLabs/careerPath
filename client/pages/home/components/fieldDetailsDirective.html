@@ -36,7 +36,8 @@
                     <h4>{{listing.name}}</h4>
                     <ul class="list-group">
                         <li class="list-group-item" ng-repeat="job in listing.jobTitles | filter:ctrl.glassDoorFilter">
-                            {{job.jobTitle}} ({{job.numJobs}})
+                            <a href="" ng-href="{{ctrl.getLinkToGlassdoor(job.jobTitle)}}" target="_blank">{{job.jobTitle}}</a>
+                            ({{job.numJobs}})
                         </li>
                     </ul>
                 </div>
