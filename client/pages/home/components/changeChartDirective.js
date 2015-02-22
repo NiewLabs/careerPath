@@ -10,7 +10,7 @@ app.directive('changeChart', function () {
             element.highcharts({
             	chart: {
             		marginTop: 70,
-            		backgroundColor: '#FCFFC5'//'#FCFFC5'
+            		//backgroundColor: '#FCFFC5'//'#FCFFC5'
             	},
                 title: {
                     text: 'Jobs Projections: New Jobs vs Seekers',
