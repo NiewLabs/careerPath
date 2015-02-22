@@ -10,7 +10,7 @@ angular.module('careerPath').directive('fieldDetails', function() {
     };
 });
 
-var FieldDetailsCtrl = function(fieldData, glassDoorApi) {
+var FieldDetailsCtrl = function($sce, fieldData, glassDoorApi) {
     var _this = this;
     fieldData.load().then(function(data) {
         _this.fieldData = data;
@@ -24,6 +24,15 @@ var FieldDetailsCtrl = function(fieldData, glassDoorApi) {
     glassDoorApi.load(this.field.groupingCode).then(function(results) {
         _this.glassDoorListings = results;
     });
+
+    this.details = [];
+
+    for(title in this.field.details) {
+        this.details.push({
+            title: title,
+            content: $sce.trustAsHtml(this.field.details[title])
+        });
+    }
 };
 
 FieldDetailsCtrl.prototype.getJobSeekers = function() {

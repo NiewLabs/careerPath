@@ -8,11 +8,13 @@ var FieldData = function($http, $q) {
 
     this.loadFieldsPromise = $q.all([
         $http.get('client/data/fields.json'),
-        $http.get('client/data/groupings_to_titles.json')
+        $http.get('client/data/groupings_to_titles.json'),
+        $http.get('client/data/groupings_to_details.json')
     ])
         .then(function(responses) {
             var fields = responses[0].data;
             var sampleJobMap = responses[1].data;
+            var groupDetailsMap = responses[2].data;
 
             for(var i = 0; i < fields.length; i++) {
                 var curField = fields[i];
@@ -38,6 +40,10 @@ var FieldData = function($http, $q) {
                         description: sampleJobMap[id][j]
                     });
                 }
+            }
+
+            for (id in groupDetailsMap) {
+                fieldData.fieldMap[id].details = groupDetailsMap[id];
             }
 
             return fieldData;

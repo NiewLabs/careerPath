@@ -44,5 +44,18 @@
 
         </div>
 
+        <div ng-if="ctrl.details.length">
+            <h3>Details</h3>
+            <ul class="list-group">
+                <li ng-repeat="detail in ctrl.details" class="list-group-item">
+                    <h4 class="list-group-item-heading">
+                        {{detail.title}}
+                    </h4>
+                    <div ng-bind-html="detail.content">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
     </div>
 </div>
