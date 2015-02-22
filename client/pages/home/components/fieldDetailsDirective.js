@@ -17,3 +17,15 @@ var FieldDetailsCtrl = function(fieldData) {
         _this.sampleJobs = data.sampleJobMap[_this.field.groupingCode];
     });
 };
+
+FieldDetailsCtrl.prototype.getJobSeekers = function() {
+    return this.field.projections.map(function(projection) {
+        return projection.jobSeekers;
+    });
+};
+
+FieldDetailsCtrl.prototype.getJobsChange = function() {
+    return this.field.projections.map(function(projection) {
+        return projection.jobsChange;
+    });
+};
