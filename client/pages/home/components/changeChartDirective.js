@@ -9,7 +9,7 @@ app.directive('changeChart', function () {
         link: function (scope, element) {
             element.highcharts({
             	chart: {
-            		spacingTop: 0
+            		spacingTop: 15
             	},
                 title: {
                     text: 'Jobs Projections: Changes vs Seekers',
