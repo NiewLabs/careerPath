@@ -22,7 +22,6 @@ HomeCtrl.prototype.preformSearch = function() {
 
     var results = this.$filter('filter')(this.fieldData.allDescriptions, this.liveSearch);
     var uniqueResults = this.$filter('unique')(results, 'id');
-    console.log(uniqueResults);
     if (uniqueResults.length === 1) {
         search.id = uniqueResults[0].id;
     }

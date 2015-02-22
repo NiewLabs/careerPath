@@ -18,8 +18,9 @@
             descriptions="ctrl.fieldData.allDescriptions"
             field-map="ctrl.fieldData.fieldMap">
     </result-list>
-    <field-details
-            ng-if="ctrl.getFieldId() && ctrl.fieldData.fieldMap[ctrl.getFieldId()]"
-            field="ctrl.fieldData.fieldMap[ctrl.getFieldId()]">
-    </field-details>
+    <div if-reload-on-change="ctrl.getFieldId() && ctrl.fieldData.fieldMap[ctrl.getFieldId()]">
+        <field-details field="ctrl.fieldData.fieldMap[ctrl.getFieldId()]">
+        </field-details>
+    </div>
+
 </div>
