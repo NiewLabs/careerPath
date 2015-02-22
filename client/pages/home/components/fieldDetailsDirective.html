@@ -1,7 +1,7 @@
 <h1 class="text-center text-primary" style="margin-bottom: 20px;">{{ctrl.field.description}}</h1>
 <div class="row">
     <div class="col-sm-6">
-        <div change-chart job-seekers="[1,2,3]" job-change="[2,1,4]"></div>
+        <div change-chart job-seekers="ctrl.getJobSeekers()" job-change="ctrl.getJobsChange()"></div>
     </div>
     <div class="col-sm-6">
         <h3>Occupations</h3>
