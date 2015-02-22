@@ -43,7 +43,7 @@ app.directive('totalChart', function () {
                     name: 'Job Totals',
                     data: scope.jobTotals
                 }]
-            }); 
+            });
         }
     };
 });
