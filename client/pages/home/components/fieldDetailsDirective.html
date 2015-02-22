@@ -13,12 +13,36 @@
                 <input type="text" class="form-control" ng-model="ctrl.jobFilter" placeholder="filter occupations"/>
             </div>
         </form>
-        <div style="height: 310px;overflow-y:scroll;border: 1px solid #eee;">
+        <div class="scrollable-list">
             <ul class="list-group" style="margin-bottom: 0;">
                 <li class="list-group-item" ng-repeat="job in ctrl.sampleJobs | filter:ctrl.jobFilter | limitTo: 100 track by $index">
                     {{job}}
                 </li>
             </ul>
         </div>
+
+        <div ng-if="ctrl.glassDoorListings">
+            <h3>Listings from Glassdoor</h3>
+
+            <form>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></span>
+                    <input type="text" class="form-control" ng-model="ctrl.glassDoorFilter" placeholder="filter job postings"/>
+                </div>
+            </form>
+
+            <div class="scrollable-list">
+                <div ng-repeat="listing in ctrl.glassDoorListings">
+                    <h4>{{listing.name}}</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="job in listing.jobTitles | filter:ctrl.glassDoorFilter">
+                            {{job.jobTitle}} ({{job.numJobs}})
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </div>

@@ -10,7 +10,7 @@ angular.module('careerPath').directive('fieldDetails', function() {
     };
 });
 
-var FieldDetailsCtrl = function(fieldData) {
+var FieldDetailsCtrl = function(fieldData, glassDoorApi) {
     var _this = this;
     fieldData.load().then(function(data) {
         _this.fieldData = data;
@@ -20,6 +20,10 @@ var FieldDetailsCtrl = function(fieldData) {
     this.jobSeekers = this.getJobSeekers();
     this.jobsChange = this.getJobsChange();
     this.jobTotals = this.getJobTotals();
+
+    glassDoorApi.load(this.field.groupingCode).then(function(results) {
+        _this.glassDoorListings = results;
+    });
 };
 
 FieldDetailsCtrl.prototype.getJobSeekers = function() {
