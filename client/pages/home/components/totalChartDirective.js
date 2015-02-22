@@ -20,6 +20,11 @@ app.directive('totalChart', function () {
                         '2019', '2020', '2021', '2022', '2022']
                 },
                 yAxis: {
+                	labels: {
+                		formatter: function() {
+                			return this.value * 1000;
+                			}
+                	},
                     title: {
                         text: 'Thousands'
                     },
@@ -39,8 +44,8 @@ app.directive('totalChart', function () {
                     borderWidth: 0
                 },
                 series: [{
-                	type: 'column',
-                    name: 'Job Totals',
+                	//type: 'column',
+                    name: 'Total Jobs Projected',
                     data: scope.jobTotals
                 }]
             });
