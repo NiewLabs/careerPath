@@ -9,13 +9,19 @@ app.directive('changeChart', function () {
         link: function (scope, element) {
             element.highcharts({
             	chart: {
-            		spacingTop: 15
+            		marginTop: 70,
+            		backgroundColor: '#FCFFC5'//'#FCFFC5'
             	},
                 title: {
-                    text: 'Jobs Projections: Changes vs Seekers',
+                    text: 'Jobs Projections: New Jobs vs Seekers',
                     //align: 'center',
                     //verticalAlign: 'top'
-                    x: -20 //center
+                    x: -20, //center
+                    style: {
+							//color: 'blue',
+							fontWeight: 'bold',
+							fontSize: '17px'
+						}
                 },
                 /*subtitle: {
                     text: 'Source: Employment and Social Development Canada',
@@ -28,12 +34,18 @@ app.directive('changeChart', function () {
                 },
                 yAxis: {
                 	labels: {
+                		format: '{value:,.0f}',
                 		formatter: function() {
                 			return this.value * 1000;
                 			}
                 },
                 title: {
-                        text: 'Jobs'
+                        text: 'Jobs',
+                        style: {
+							//color: 'blue',
+							fontWeight: 'bold',
+							fontSize: '15px'
+						}
                 },
                 plotLines: [{
                         value: 0,
@@ -42,30 +54,48 @@ app.directive('changeChart', function () {
                     }]
                 },
                 tooltip: {
+                    backgroundColor: 'white',//'#FCFFC5',
+    				borderColor: 'black',
+    				borderRadius: 10,
+    				borderWidth: 1.5,
                     formatter: function() {
-                    		return this.y * 1000;
-                    		}
+                    		return this.y * 1000 + ' jobs';
+                    		},
                 },
                 credits: {
                 	enabled: false
                 },
-                /*
+                
                 legend: {
                     layout: 'horizontal',
                     align: 'center',
                     verticalAlign: 'top',
+                    y: 20,
                     borderWidth: 0,
                     floating: true
                 },
-                */
                 series: [{
                 	type: 'column',
-                    name: 'Job Demands',
-                    data: scope.jobChange
+                    name: 'New Jobs',
+                    data: scope.jobChange,
+                    //color: 'blue',
+					shadow: {
+						color: '#00BFFF',
+						width: 1,
+						offsetX: 0,
+						offsetY: 0
+					}
                 }, {
                 	type: 'column',
                     name: 'Job Seekers',
-                    data: scope.jobSeekers
+                    data: scope.jobSeekers,
+                    color: '#848484',
+					shadow: {
+						color: '#424242',
+						width: 1,
+						offsetX: 0,
+						offsetY: 0
+					}
                 }]
             }); 
         }
