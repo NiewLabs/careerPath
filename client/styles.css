@@ -81,3 +81,9 @@ margin-top: 0;
 .form-group-lg .input-group-btn button {
     padding: 16px 14px 17px 14px;
 }
+
+.scrollable-list {
+    height: 300px;
+    overflow-y:scroll;
+    border: 1px solid #eee;
+}
