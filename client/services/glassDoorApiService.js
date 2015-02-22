@@ -7,7 +7,6 @@ var GlassDoorApi = function($http, $q, $timeout) {
 angular.module('careerPath').service('glassDoorApi', GlassDoorApi);
 
 GlassDoorApi.prototype.load = function(groupingId) {
-    console.log('loading');
     var _this = this;
     return this.$http.get('client/data/glassdoor_job_categories.json', { cache: true})
         .then(function(response) {
