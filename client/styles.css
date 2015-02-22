@@ -65,17 +65,17 @@ margin-top: 0;
 
 ::-webkit-input-placeholder { /* WebKit browsers */
     color: black !important;
-    opacity: 0.5 !important;
+    opacity: 0.45 !important;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
     color: black !important;
-    opacity: 0.5 !important;
+    opacity: 0.45 !important;
 }
 
 :-ms-input-placeholder {
     color: black !important;
-    opacity: 0.5 !important;
+    opacity: 0.45 !important;
 }
 
 .form-group-lg .input-group-btn button {
