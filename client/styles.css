@@ -51,7 +51,9 @@ margin-top: 0;
 #search-form #search-title {
     color: white;
     opacity: 1;
-    height: 30px;
+    height: 50px;
+    font-size: 50px;
+    font-weight: 900;
 }
 
 .hideBackground #search-form #search-title {
