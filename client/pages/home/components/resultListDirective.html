@@ -1,6 +1,6 @@
 <div>
     <ul>
-        <li ng-repeat="match in ctrl.descriptions | filter:ctrl.search track by match.id">
+        <li ng-repeat="match in ctrl.descriptions | filter:ctrl.search | unique:'id'">
             <h3>
                 <a href="" ng-href="#/home?id={{match.id}}">
                     {{ctrl.fieldMap[match.id].description}}
