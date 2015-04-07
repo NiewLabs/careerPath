@@ -44,6 +44,22 @@
             </div>
             <a href='http://www.glassdoor.com/index.htm'>powered by <img src='http://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
         </div>
+
+        <div ng-if="ctrl.courseraListings">
+            <h3>Listings from Coursera</h3>
+
+            <div class="scrollable-list">
+                <div ng-repeat="listing in ctrl.courseraListings">
+                    <h4>{{listing.name}}</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="job in listing.name">
+                            <a href="" ng-href="{{ctrl.getLinkToCoursera(element.shortName)}}" target="_blank">{{element.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 <div class="row">

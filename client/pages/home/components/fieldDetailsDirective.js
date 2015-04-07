@@ -10,7 +10,7 @@ angular.module('careerPath').directive('fieldDetails', function() {
     };
 });
 
-var FieldDetailsCtrl = function($sce, fieldData, glassDoorApi) {
+var FieldDetailsCtrl = function($sce, fieldData, glassDoorApi, courseraApi) {
     var _this = this;
     fieldData.load().then(function(data) {
         _this.fieldData = data;
@@ -23,6 +23,10 @@ var FieldDetailsCtrl = function($sce, fieldData, glassDoorApi) {
 
     glassDoorApi.load(this.field.groupingCode).then(function(results) {
         _this.glassDoorListings = results;
+    });
+
+    courseraApi.load(this.field.groupingCode).then(function(results) {
+         _this.courseraListings = results;
     });
 
     this.details = [];
@@ -56,4 +60,8 @@ FieldDetailsCtrl.prototype.getJobTotals = function() {
 FieldDetailsCtrl.prototype.getLinkToGlassdoor = function(jobTitle) {
     var dashedTitle = jobTitle.replace(/ /g, '-');
     return 'http://www.glassdoor.ca/Job/' + dashedTitle + '-jobs-SRCH_KO0,'+dashedTitle.length+'.htm';
+};
+
+FieldDetailsCtrl.prototype.getLinkToCoursera  = function(shortName) {
+    return 'https://www.coursera.org/course/' + shortName;
 };

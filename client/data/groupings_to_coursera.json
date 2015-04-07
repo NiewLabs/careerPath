@@ -1,0 +1,44 @@
+{
+  "N0010": [
+    "legislation",
+    "management"
+  ],
+  "N0111": [
+    "financial",
+    "economy"
+  ],
+  "N0112": [
+    "human resources",
+    "administration"
+  ],
+  "N0121": [
+    "insurance", 
+    "real estate", 
+    "brokerage"
+  ],
+  "N0122": [
+    "banking", 
+    "credit",
+    "investment"
+  ],
+  "N0123": [
+    "business"
+  ],
+  "N0130": [
+    "telecommunication"
+  ],
+  "N0211": [
+    "architecture"
+  ],
+
+  "N2147": [
+    "computer",
+    "hardware",
+    "software"
+  ],
+
+  "N9220": [
+    "assembly",
+    "fabrication"
+  ]
+}
