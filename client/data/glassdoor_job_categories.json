@@ -4,7 +4,8 @@
     "Finance"
   ],
   "2": [
-    "Administrative"
+    "Administrative",
+    "Administration"
   ],
   "3": [
     "Analyst"
@@ -28,14 +29,15 @@
     "Wellness"
   ],
   "8": [
-    "Business Development",
+    "Business",
     "Consulting"
   ],
   "9": [
     "Education"
   ],
   "10": [
-    "Engineering (Non-software)"
+    "Engineer",
+    "Engineering"
   ],
   "11": [
     "Facilities",
@@ -63,7 +65,7 @@
   "17": [
     "Marketing",
     "Advertising",
-    "PR"
+    "Public Relations"
   ],
   "18": [
     "Medical",
@@ -107,7 +109,7 @@
   ],
   "29": [
     "Software Development",
-    "IT"
+    "Information Technology"
   ],
   "30": [
     "Sports",
